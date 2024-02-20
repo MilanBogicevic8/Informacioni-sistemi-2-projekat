@@ -1,0 +1,5 @@
+select Measures.MinutiGledanja on axis(0),
+non empty 
+crossjoin(	crossjoin(Pol.Pol.members,Uzrast.Uzrast.members),MestoGledaoca.Mesto.members
+) on axis(1)
+from Gledanje

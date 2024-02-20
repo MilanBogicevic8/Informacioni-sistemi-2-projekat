@@ -1,0 +1,75 @@
+create database skladiste;
+use skladiste;
+
+CREATE TABLE Gledanje (
+    IdGle INT NOT NULL,
+    BrojMinuta INT,
+    PocetakGledanja TIMESTAMP,
+    IdVid INT NOT NULL,
+    IdPol INT NOT NULL,
+    IdUzr INT NOT NULL,
+    IdMesV INT NOT NULL,
+    IdMesG INT NOT NULL,
+    PRIMARY KEY (IdGle, IdVid, IdPol, IdUzr, IdMesV, IdMesG)
+);
+
+CREATE TABLE MestoGledaoca (
+    IdMes INT NOT NULL,
+    Mesto VARCHAR(20),
+    PRIMARY KEY (IdMes)
+);
+
+CREATE TABLE MestoVlasnika (
+    IdMes INT NOT NULL,
+    Mesto VARCHAR(20),
+    PRIMARY KEY (IdMes)
+);
+
+CREATE TABLE Ocena (
+    IdOce INT NOT NULL AUTO_INCREMENT,
+    Ocena INT NOT NULL,
+    IdVre INT NOT NULL,
+    IdMesV INT NOT NULL,
+    IdMesG INT NOT NULL,
+    IdPol INT NOT NULL,
+    IdUzr INT NOT NULL,
+    IdVid INT NOT NULL,
+    PRIMARY KEY (IdOce, IdVre, IdMesV, IdMesG, IdPol, IdUzr, IdVid)
+);
+
+CREATE TABLE Pol (
+    IdPol INT NOT NULL AUTO_INCREMENT,
+    Tip VARCHAR(20),
+    PRIMARY KEY (IdPol)
+);
+
+CREATE TABLE Pretplate (
+    IdPre INT NOT NULL,
+    Iznos INT NOT NULL,
+    IdVre INT NOT NULL,
+    IdPol INT NOT NULL,
+    IdUzr INT NOT NULL,
+    IdMes INT NOT NULL,
+    PRIMARY KEY (IdPre, IdVre, IdPol, IdUzr, IdMes)
+);
+
+CREATE TABLE Uzrast (
+    IdUzr INT NOT NULL AUTO_INCREMENT,
+    Godine INT,
+    PRIMARY KEY (IdUzr)
+);
+
+CREATE TABLE Video (
+    IdVid INT NOT NULL,
+    Naziv VARCHAR(20),
+    Trajanje INT,
+    Datum DATE,
+    Vreme TIME,
+    PRIMARY KEY (IdVid)
+);
+
+CREATE TABLE Vreme (
+    IdVre INT NOT NULL AUTO_INCREMENT,
+    Vreme TIMESTAMP,
+    PRIMARY KEY (IdVre)
+);

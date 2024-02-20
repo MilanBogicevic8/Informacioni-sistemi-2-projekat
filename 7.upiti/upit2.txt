@@ -1,0 +1,3 @@
+select Measures.ProsecnaOcena on columns,
+MestoVlasnika.Mesto.members on rows
+from Ocene

@@ -1,0 +1,117 @@
+-- Create the VideoKlub database
+CREATE DATABASE Video;
+USE Video;
+
+-- Create the Gledanje table
+CREATE TABLE Gledanje
+( 
+    IdGle              INTEGER NOT NULL AUTO_INCREMENT,
+    Datum              DATE NULL,
+    Vreme              TIME NULL,
+    PocetniSekund      TIMESTAMP NULL,
+    TrajanjeUSekundama INTEGER NULL,
+    IdKor              INTEGER NULL,
+    IdVid              INTEGER NULL,
+    PRIMARY KEY (IdGle)
+);
+
+-- Create the Kategorija table
+CREATE TABLE Kategorija
+( 
+    IdKat INTEGER NOT NULL AUTO_INCREMENT,
+    Naziv VARCHAR(20) NULL,
+    Datum_vreme TIMESTAMP NULL,
+    PRIMARY KEY (IdKat)
+);
+
+-- Create the Mesto table
+CREATE TABLE Mesto
+( 
+    IdMes INTEGER NOT NULL AUTO_INCREMENT,
+    Mesto  CHAR(18) NULL,
+    Datum_vreme TIMESTAMP NULL,
+    PRIMARY KEY (IdMes)
+);
+
+-- Create the Korisnik table
+CREATE TABLE Korisnik
+( 
+    IdKor   INTEGER NOT NULL AUTO_INCREMENT,
+    Ime     VARCHAR(20) NULL,
+    Email   VARCHAR(20) NULL,
+    Godiste INTEGER NULL,
+    Pol     VARCHAR(20) NULL,
+    IdMes   INTEGER NULL,
+    Uzrast  Integer,
+    Datum_vreme TIMESTAMP NULL,
+    PRIMARY KEY (IdKor),
+    FOREIGN KEY (IdMes) REFERENCES Mesto(IdMes) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
+-- Create the Video table
+CREATE TABLE Video
+( 
+    IdVid    INTEGER NOT NULL AUTO_INCREMENT,
+    Naziv    VARCHAR(20) NULL,
+    Trajanje INTEGER NULL,
+    Datum    DATE NULL,
+    Vreme    TIME NULL,
+    IdKor    INTEGER NULL,
+    PRIMARY KEY (IdVid),
+    FOREIGN KEY (IdKor) REFERENCES Korisnik(IdKor) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
+-- Create the Ocena table
+CREATE TABLE Ocena
+( 
+    Ocena     INTEGER NULL,
+    Datum     DATETIME NULL,
+    Vreme     TIME NULL,
+    IdKor     INTEGER NOT NULL,
+    IdVid     INTEGER NOT NULL,
+    PRIMARY KEY (IdKor, IdVid),
+    FOREIGN KEY (IdKor) REFERENCES Korisnik(IdKor) ON DELETE NO ACTION ON UPDATE NO ACTION,
+    FOREIGN KEY (IdVid) REFERENCES Video(IdVid) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
+-- Create the Paket table
+CREATE TABLE Paket
+( 
+    IdPak      INTEGER NOT NULL AUTO_INCREMENT,
+    MesecnaCena INTEGER NULL,
+    Datum_vreme TIMESTAMP NULL,
+    PRIMARY KEY (IdPak)
+);
+
+-- Create the Pretplata table
+CREATE TABLE Pretplata
+( 
+    IdPre       INTEGER NOT NULL AUTO_INCREMENT,
+    Datum       DATE NULL,
+    Vreme       TIME NULL,
+    PlacenaCena INTEGER NULL,
+    IdPak       INTEGER NULL,
+    IdKor       INTEGER NULL,
+    PRIMARY KEY (IdPre),
+    FOREIGN KEY (IdPak) REFERENCES Paket(IdPak) ON DELETE NO ACTION ON UPDATE NO ACTION,
+    FOREIGN KEY (IdKor) REFERENCES Korisnik(IdKor) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
+-- Create the Video_Kategorija table
+CREATE TABLE Video_Kategorija
+( 
+    IdVid INTEGER NOT NULL,
+    IdKat INTEGER NOT NULL,
+    PRIMARY KEY (IdVid, IdKat),
+    Datum_vreme TIMESTAMP NULL,
+    FOREIGN KEY (IdVid) REFERENCES Video(IdVid) ON DELETE NO ACTION ON UPDATE NO ACTION,
+    FOREIGN KEY (IdKat) REFERENCES Kategorija(IdKat) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+
+-- Create the Poslednja_Izmena table
+CREATE TABLE Poslednja_Izmena
+(
+   IdPos INTEGER AUTO_INCREMENT,
+   Vreme TIMESTAMP,
+   primary key (IdPos)
+);

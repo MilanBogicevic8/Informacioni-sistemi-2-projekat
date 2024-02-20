@@ -1,0 +1,129 @@
+
+-- Dodaj mesta
+INSERT INTO Mesto (Mesto,Datum_vreme) VALUES 
+('Kovin',TIMESTAMP('2023-01-01 12:00:00')),
+('Smederevo',TIMESTAMP('2023-01-01 12:00:00')),
+('Beograd',TIMESTAMP('2023-01-01 12:00:00')),
+('Novi Sad',TIMESTAMP('2023-01-01 12:00:00')),
+('Niš',TIMESTAMP('2023-01-01 12:00:00')),
+('Kragujevac',TIMESTAMP('2023-01-01 12:00:00')),
+('Subotica',TIMESTAMP('2023-01-01 12:00:00')),
+('Čačak',TIMESTAMP('2023-01-01 12:00:00')),
+('Zrenjanin',TIMESTAMP('2023-01-01 12:00:00')),
+('Pančevo',TIMESTAMP('2023-01-01 12:00:00'));
+
+
+-- Dodaj korisnike sa izračunatim uzrastom
+INSERT INTO Korisnik (Ime, Email, Godiste, Pol, IdMes, Uzrast,Datum_vreme) VALUES
+('Tasha Sekularac', 'tasha@email.com', 1990, 'Ženski', 1, YEAR('2024-01-01') - 1990,TIMESTAMP('2023-01-01 12:00:00')),
+('Stefan Tubic', 'stefan@email.com', 1985, 'Muški', 2, YEAR('2024-01-01') - 1985,TIMESTAMP('2023-01-01 12:00:00')),
+('Milos Cvetanovic', 'milos@email.com', 1995, 'Muški', 3, YEAR('2024-01-01') - 1995,TIMESTAMP('2023-01-01 12:00:00')),
+('Zaharije Radivojevic', 'zaharije@email.com', 1988, 'Muški', 1, YEAR('2024-01-01') - 1988,TIMESTAMP('2023-01-01 12:00:00')),
+('Bosko Obradovic', 'bosko@email.com', 1980, 'Muški', 2, YEAR('2024-01-01') - 1980,TIMESTAMP('2023-01-01 12:00:00')),
+('Drazen Draskovic', 'drazen@email.com', 1992, 'Muški', 3, YEAR('2024-01-01') - 1992,TIMESTAMP('2023-01-01 12:00:00')),
+('Marko Markovic', 'marko@email.com', 1987, 'Muški', 1, YEAR('2024-01-01') - 1987,TIMESTAMP('2023-01-01 12:00:00')),
+('Ana Antic', 'ana@email.com', 1998, 'Ženski', 2, YEAR('2024-01-01') - 1998,TIMESTAMP('2023-01-01 12:00:00')),
+('Jovana Jovanovic', 'jovana@email.com', 1993, 'Ženski', 3, YEAR('2024-01-01') - 1993,TIMESTAMP('2023-01-01 12:00:00'));
+
+
+-- Dodaj kategorije
+INSERT INTO Kategorija (Naziv,Datum_vreme) VALUES 
+('Akcija',TIMESTAMP('2023-01-01 12:00:00')),
+('Komedija',TIMESTAMP('2023-01-01 12:00:00')),
+('Drama',TIMESTAMP('2023-01-01 12:00:00')),
+('Horor',TIMESTAMP('2023-01-01 12:00:00')),
+('Naučna fantastika',TIMESTAMP('2023-01-01 12:00:00')),
+('Triler',TIMESTAMP('2023-01-01 12:00:00')),
+('Animirani',TIMESTAMP('2023-01-01 12:00:00')),
+('Romansa',TIMESTAMP('2023-01-01 12:00:00')),
+('Misterija',TIMESTAMP('2023-01-01 12:00:00')),
+('Fantazija',TIMESTAMP('2023-01-01 12:00:00'));
+
+-- Dodaj videe
+INSERT INTO Video (Naziv, Trajanje, Datum, Vreme, IdKor) VALUES
+('Film 1', 120, '2023-01-01', '12:00:00', 1),
+('Film 2', 90, '2023-02-15', '18:30:00', 2),
+('Film 3', 110, '2023-03-20', '15:45:00', 3),
+('Film 4', 95, '2023-04-10', '21:00:00', 1),
+('Film 5', 130, '2023-05-05', '14:20:00', 2),
+('Film 6', 105, '2023-06-12', '19:10:00', 3),
+('Film 7', 88, '2023-07-25', '16:30:00', 1),
+('Film 8', 115, '2023-08-08', '20:45:00', 2),
+('Film 9', 100, '2023-09-18', '17:15:00', 3),
+('Film 10', 110, '2023-10-30', '22:00:00', 1);
+
+-- Dodaj ocene
+INSERT INTO Ocena (Ocena, Datum, Vreme, IdKor, IdVid) VALUES
+(4, '2023-01-02', '12:30:00', 1, 1),
+(5, '2023-02-16', '19:00:00', 2, 2),
+(3, '2023-03-21', '16:00:00', 3, 3),
+(4, '2023-04-11', '22:15:00', 1, 4),
+(5, '2023-05-06', '15:00:00', 2, 5),
+(3, '2023-06-13', '20:30:00', 3, 6),
+(4, '2023-07-26', '17:00:00', 1, 7),
+(5, '2023-08-09', '21:15:00', 2, 8),
+(3, '2023-09-19', '18:30:00', 3, 9),
+(4, '2023-11-01', '23:00:00', 1, 10);
+
+-- Dodaj pakete
+INSERT INTO Paket (MesecnaCena,Datum_vreme) VALUES 
+(500,TIMESTAMP('2023-01-01 12:00:00')),
+(700,TIMESTAMP('2023-01-01 12:00:00')),
+(900,TIMESTAMP('2023-01-01 12:00:00')),
+(1000,TIMESTAMP('2023-01-01 12:00:00')),
+(800,TIMESTAMP('2023-01-01 12:00:00')),
+(100,TIMESTAMP('2023-01-01 12:00:00')),
+(500,TIMESTAMP('2023-01-01 12:00:00')),
+(4000,TIMESTAMP('2023-01-01 12:00:00')),
+(8000,TIMESTAMP('2023-01-01 12:00:00')),
+(200,TIMESTAMP('2023-01-01 12:00:00'));
+
+-- Dodaj pretplate
+INSERT INTO Pretplata (Datum, Vreme, PlacenaCena, IdPak, IdKor) VALUES
+('2023-01-03', '13:00:00', 500, 1, 1),
+('2023-02-17', '19:30:00', 700, 2, 2),
+('2023-03-22', '17:15:00', 900, 3, 3),
+('2023-04-12', '23:30:00', 500, 1, 4),
+('2023-05-07', '16:15:00', 700, 2, 5),
+('2023-06-14', '21:45:00', 900, 3, 6),
+('2023-07-27', '18:30:00', 500, 1, 7),
+('2023-08-10', '22:45:00', 700, 2, 8),
+('2023-09-20', '19:00:00', 900, 3, 8),
+('2023-11-02', '00:15:00', 500, 1, 8);
+
+-- Dodaj veze između videa i kategorija
+INSERT INTO Video_Kategorija (IdVid, IdKat,Datum_vreme) VALUES
+(1, 1,TIMESTAMP('2023-01-01 12:00:00')), 
+(1, 2,TIMESTAMP('2023-01-01 12:00:00')),
+(2, 3,TIMESTAMP('2023-01-01 12:00:00')), 
+(2, 4,TIMESTAMP('2023-01-01 12:00:00')),
+(3, 5,TIMESTAMP('2023-01-01 12:00:00')), 
+(3, 6,TIMESTAMP('2023-01-01 12:00:00')),
+(4, 7,TIMESTAMP('2023-01-01 12:00:00')), 
+(4, 8,TIMESTAMP('2023-01-01 12:00:00')),
+(5, 9,TIMESTAMP('2023-01-01 12:00:00')),
+(5, 10,TIMESTAMP('2023-01-01 12:00:00')),
+(6, 1,TIMESTAMP('2023-01-01 12:00:00')), 
+(6, 2,TIMESTAMP('2023-01-01 12:00:00')),
+(7, 3,TIMESTAMP('2023-01-01 12:00:00')), 
+(7, 4,TIMESTAMP('2023-01-01 12:00:00')),
+(8, 5,TIMESTAMP('2023-01-01 12:00:00')), 
+(8, 6,TIMESTAMP('2023-01-01 12:00:00')),
+(9, 7,TIMESTAMP('2023-01-01 12:00:00')), 
+(9, 8,TIMESTAMP('2023-01-01 12:00:00')),
+(10, 9,TIMESTAMP('2023-01-01 12:00:00')), 
+(10, 10,TIMESTAMP('2023-01-01 12:00:00'));
+
+INSERT INTO Gledanje (Datum, Vreme, PocetniSekund, TrajanjeUSekundama, IdKor, IdVid)
+VALUES
+('2023-01-01', '12:00:00', TIMESTAMP('2023-01-01 12:00:00'), 1200, 1, 1),
+('2023-02-15', '18:30:00', TIMESTAMP('2023-02-15 18:30:00'), 900, 2, 2),
+('2023-03-20', '15:45:00', TIMESTAMP('2023-03-20 15:45:00'), 6600, 3, 3),
+('2023-04-10', '21:00:00', TIMESTAMP('2023-04-10 21:00:00'), 5700, 1, 8),
+('2023-05-05', '14:20:00', TIMESTAMP('2023-05-05 14:20:00'), 7800, 2, 5),
+('2023-06-12', '19:10:00', TIMESTAMP('2023-06-12 19:10:00'), 6300, 3, 6),
+('2023-07-25', '16:30:00', TIMESTAMP('2023-07-25 16:30:00'), 5280, 1, 7),
+('2023-08-08', '20:45:00', TIMESTAMP('2023-08-08 20:45:00'), 6900, 2, 8),
+('2023-09-18', '17:15:00', TIMESTAMP('2023-09-18 17:15:00'), 6000, 3, 8),
+('2023-10-30', '22:00:00', TIMESTAMP('2023-10-30 22:00:00'), 6600, 1, 8);
+
